@@ -1,3 +1,4 @@
+import 'package:flutter_xhs/common/utils/public_utils.dart';
 import 'package:flutter_xhs/pages/video_page/video_controller.dart';
 import 'package:get/get.dart';
 
@@ -11,9 +12,11 @@ class HomeController extends GetxController {
       if (Get.find<VideoController>().videos.isNotEmpty) {
         if (index == 1) {
           print("视频播放");
+          PublicUtils.setStatusBarLight();
           Get.find<VideoController>().currentVideo.controller?.play();
         } else {
           print("视频暂停");
+          PublicUtils.setStatusBarDark();
           Get.find<VideoController>().currentVideo.controller?.pause();
         }
       }
